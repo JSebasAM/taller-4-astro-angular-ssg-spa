@@ -8,9 +8,8 @@ describe('AlertComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlertComponent]
-    })
-    .compileComponents();
+      imports: [AlertComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AlertComponent);
     component = fixture.componentInstance;
@@ -56,7 +55,7 @@ describe('AlertComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('Cargando datos...');
   });
-  
+
   it('debería renderizar el texto recibido por input en error', () => {
     component.alertState = 'error';
     component.text = 'Error al cargar los datos';

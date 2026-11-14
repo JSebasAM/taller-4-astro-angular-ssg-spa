@@ -23,5 +23,5 @@ import { environment } from '../../environments/environment';
  * ```
  */
 export const clientAngularInterceptor: HttpInterceptorFn = (req, next) => {
-  return next(req.clone({ url: `${environment.baseUrl}/${req.url}`}));
+  return next(req.clone({ url: `${environment.baseUrl}/${req.url}` }));
 };

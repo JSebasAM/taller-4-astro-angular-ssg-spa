@@ -22,25 +22,23 @@
  * ```
  */
 export interface Ticket {
+  /** Identificador único del ticket */
+  id: number;
 
-    /** Identificador único del ticket */
-    id: number;
+  /** Asunto o descripción breve de la incidencia */
+  subject: string;
 
-    /** Asunto o descripción breve de la incidencia */
-    subject: string;
+  /** Nombre del responsable asignado al ticket */
+  assigned_to: string;
 
-    /** Nombre del responsable asignado al ticket */
-    assigned_to: string;
+  /** Nivel de prioridad del ticket */
+  priority: TicketPriority;
 
-    /** Nivel de prioridad del ticket */
-    priority: TicketPriority;
+  /** Estado actual del ticket */
+  status: TicketStatus;
 
-    /** Estado actual del ticket */
-    status: TicketStatus;
-
-    /** Fecha de creación del ticket en formato ISO (YYYY-MM-DD) */
-    date: string;
-
+  /** Fecha de creación del ticket en formato ISO (YYYY-MM-DD) */
+  date: string;
 }
 
 /**
@@ -81,4 +79,3 @@ export type TicketPriority = 'Baja' | 'Media' | 'Alta' | 'Crítica';
  * ```
  */
 export type TicketStatus = 'Abierto' | 'En Progreso' | 'En Revisión' | 'Resuelto' | 'Cerrado';
-

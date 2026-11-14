@@ -1,4 +1,4 @@
-import { Provider } from "../interfaces/providers.interface";
+import { Provider } from '../interfaces/providers.interface';
 
 /**
  * Listado de proveedores disponibles en el sistema.
@@ -19,7 +19,7 @@ export const PROVIDERS: Provider[] = [
     email: 'juan.perez@distribuidora.com',
     phone: '555-1234',
     category: 'Alimentos',
-    price: 4500
+    price: 4500,
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const PROVIDERS: Provider[] = [
     email: 'maria.lopez@tecnologia.com',
     phone: '555-5678',
     category: 'Tecnología',
-    price: 12000
+    price: 12000,
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const PROVIDERS: Provider[] = [
     email: 'carlos.rodriguez@servicios.com',
     phone: '555-9012',
     category: 'Servicios',
-    price: 8000
+    price: 8000,
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ export const PROVIDERS: Provider[] = [
     email: 'ana.martinez@logistica.com',
     phone: '555-3456',
     category: 'Logística',
-    price: 6000
+    price: 6000,
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ export const PROVIDERS: Provider[] = [
     email: 'luis.gonzalez@distribuidora.com',
     phone: '555-7890',
     category: 'Alimentos',
-    price: 5000
+    price: 5000,
   },
   {
     id: 6,
@@ -64,7 +64,7 @@ export const PROVIDERS: Provider[] = [
     email: 'carla.torres@tecnologia.com',
     phone: '555-2345',
     category: 'Tecnología',
-    price: 15000
+    price: 15000,
   },
   {
     id: 7,
@@ -73,7 +73,7 @@ export const PROVIDERS: Provider[] = [
     email: 'pedro.sanchez@servicios.com',
     phone: '555-8901',
     category: 'Servicios',
-    price: 9000
+    price: 9000,
   },
   {
     id: 8,
@@ -82,7 +82,7 @@ export const PROVIDERS: Provider[] = [
     email: 'marta.ruiz@logistica.com',
     phone: '555-4567',
     category: 'Logística',
-    price: 7000
+    price: 7000,
   },
   {
     id: 9,
@@ -91,7 +91,7 @@ export const PROVIDERS: Provider[] = [
     email: 'jorge.diaz@distribuidora.com',
     phone: '555-0123',
     category: 'Alimentos',
-    price: 5500
+    price: 5500,
   },
   {
     id: 10,
@@ -100,7 +100,7 @@ export const PROVIDERS: Provider[] = [
     email: 'laura.castro@tecnologia.com',
     phone: '555-6789',
     category: 'Tecnología',
-    price: 13000
+    price: 13000,
   },
   {
     id: 11,
@@ -109,7 +109,7 @@ export const PROVIDERS: Provider[] = [
     email: 'andres.ramirez@distribuidora.com',
     phone: '555-1122',
     category: 'Alimentos',
-    price: 6500
+    price: 6500,
   },
   {
     id: 12,
@@ -118,6 +118,6 @@ export const PROVIDERS: Provider[] = [
     email: 'elena.morales@tecnologia.com',
     phone: '555-3344',
     category: 'Tecnología',
-    price: 18000
-  }
+    price: 18000,
+  },
 ];

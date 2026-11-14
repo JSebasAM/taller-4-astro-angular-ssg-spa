@@ -56,9 +56,9 @@ export class UsersPage {
         this.state = 'success';
       },
       error: (error) => {
-        console.error(error)
+        console.error(error);
         this.state = 'error';
       },
-    })
+    });
   }
 }

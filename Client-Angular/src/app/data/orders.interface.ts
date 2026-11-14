@@ -1,4 +1,4 @@
-import { Order } from "../interfaces/orders.interface";
+import { Order } from '../interfaces/orders.interface';
 
 /**
  * Listado de órdenes disponibles en el sistema.

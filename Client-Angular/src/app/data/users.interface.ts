@@ -1,4 +1,4 @@
-import { User } from "../interfaces/users.interface";
+import { User } from '../interfaces/users.interface';
 
 /**
  * Listado de usuarios del sistema.
@@ -20,7 +20,7 @@ export const USERS: User[] = [
     lastName: 'Ramírez',
     age: 22,
     email: 'carlos.ramirez@example.com',
-    engineering: 'Sistemas'
+    engineering: 'Sistemas',
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const USERS: User[] = [
     lastName: 'Gómez',
     age: 20,
     email: 'ana.gomez@example.com',
-    engineering: 'Industrial'
+    engineering: 'Industrial',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const USERS: User[] = [
     lastName: 'Martínez',
     age: 23,
     email: 'luis.martinez@example.com',
-    engineering: 'Electronica'
+    engineering: 'Electronica',
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ export const USERS: User[] = [
     lastName: 'Lopez',
     age: 21,
     email: 'maria.lopez@example.com',
-    engineering: 'Ambiental'
+    engineering: 'Ambiental',
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ export const USERS: User[] = [
     lastName: 'Fernández',
     age: 24,
     email: 'jorge.fernandez@example.com',
-    engineering: 'Sistemas'
+    engineering: 'Sistemas',
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ export const USERS: User[] = [
     lastName: 'Ríos',
     age: 19,
     email: 'paola.rios@example.com',
-    engineering: 'Biomedica'
+    engineering: 'Biomedica',
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ export const USERS: User[] = [
     lastName: 'Torres',
     age: 22,
     email: 'andres.torres@example.com',
-    engineering: 'Electronica'
+    engineering: 'Electronica',
   },
   {
     id: 8,
@@ -76,7 +76,7 @@ export const USERS: User[] = [
     lastName: 'Mendoza',
     age: 23,
     email: 'lucia.mendoza@example.com',
-    engineering: 'Industrial'
+    engineering: 'Industrial',
   },
   {
     id: 9,
@@ -84,7 +84,7 @@ export const USERS: User[] = [
     lastName: 'Pérez',
     age: 20,
     email: 'sofia.perez@example.com',
-    engineering: 'Ambiental'
+    engineering: 'Ambiental',
   },
   {
     id: 10,
@@ -92,6 +92,6 @@ export const USERS: User[] = [
     lastName: 'Castro',
     age: 25,
     email: 'miguel.castro@example.com',
-    engineering: 'Sistemas'
-  }
+    engineering: 'Sistemas',
+  },
 ];

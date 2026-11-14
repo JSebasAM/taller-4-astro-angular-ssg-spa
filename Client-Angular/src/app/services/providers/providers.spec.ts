@@ -11,10 +11,7 @@ describe('ProvidersService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-       providers: [
-        provideHttpClient(),
-        provideHttpClientTesting(),
-      ]
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     });
     service = TestBed.inject(ProvidersService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -26,15 +23,12 @@ describe('ProvidersService', () => {
   });
 
   describe('Creación del servicio', () => {
-
     it('debería crearse correctamente', () => {
       expect(service).toBeTruthy();
     });
-
   });
 
   describe('getAllProviders', () => {
-  
     it('debería realizar una petición GET y retornar una lista de proveedores', () => {
       const countProviders = 5;
       const mockProviders: Provider[] = providersMock;
@@ -66,10 +60,8 @@ describe('ProvidersService', () => {
 
       req.flush(
         { message: 'Error interno del servidor' },
-        { status: 500, statusText: 'Internal Server Error' }
+        { status: 500, statusText: 'Internal Server Error' },
       );
     });
-  
   });
-
 });

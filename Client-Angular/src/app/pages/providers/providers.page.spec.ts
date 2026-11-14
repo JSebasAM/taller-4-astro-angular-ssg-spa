@@ -16,9 +16,8 @@ describe('ProvidersPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProvidersPage, ProvidersTableComponent],
-      providers: [provideHttpClient()]
-    })
-    .compileComponents();
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProvidersPage);
     component = fixture.componentInstance;
@@ -30,7 +29,9 @@ describe('ProvidersPage', () => {
   });
 
   it('debería llamar a getAllProviders al iniciar', () => {
-    const spyGetAllProviders = jest.spyOn(providersService, 'getAllProviders').mockReturnValue(of(providersMock));
+    const spyGetAllProviders = jest
+      .spyOn(providersService, 'getAllProviders')
+      .mockReturnValue(of(providersMock));
     fixture.detectChanges();
     expect(spyGetAllProviders).toHaveBeenCalled();
   });
@@ -44,9 +45,9 @@ describe('ProvidersPage', () => {
   it('debería pasar los provideros al componente providers-table', () => {
     jest.spyOn(providersService, 'getAllProviders').mockReturnValue(of(providersMock));
     fixture.detectChanges();
-    const tableComponent = fixture.debugElement
-      .query(By.directive(ProvidersTableComponent))
-      .componentInstance;
+    const tableComponent = fixture.debugElement.query(
+      By.directive(ProvidersTableComponent),
+    ).componentInstance;
     expect(tableComponent.providers).toEqual(providersMock);
   });
 
@@ -55,7 +56,9 @@ describe('ProvidersPage', () => {
     const errorResponse = new Error('Error al cargar provideros');
 
     jest.spyOn(console, 'error').mockImplementation(() => {});
-    jest.spyOn(providersService, 'getAllProviders').mockReturnValue(throwError(() => errorResponse));
+    jest
+      .spyOn(providersService, 'getAllProviders')
+      .mockReturnValue(throwError(() => errorResponse));
 
     fixture.detectChanges();
 

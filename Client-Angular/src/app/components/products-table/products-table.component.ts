@@ -51,9 +51,9 @@ export class ProductsTableComponent {
    * de forma clara para el usuario.
    */
   categoryMap: Record<ProductCategory, BadgeType> = {
-    'Carnes' : 'danger',
-    'Frutas': 'warning',
-    'Lacteos': 'primary',
-    'Verduras': 'success',
-  }
+    Carnes: 'danger',
+    Frutas: 'warning',
+    Lacteos: 'primary',
+    Verduras: 'success',
+  };
 }

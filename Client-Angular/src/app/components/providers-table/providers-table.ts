@@ -51,9 +51,9 @@ export class ProvidersTableComponent {
    * de forma clara para el usuario.
    */
   categoryMap: Record<ProviderCategory, BadgeType> = {
-    'Tecnología': 'primary',
-    'Alimentos': 'success',
-    'Logística': 'warning',
-    'Servicios': 'info'
-  }
+    Tecnología: 'primary',
+    Alimentos: 'success',
+    Logística: 'warning',
+    Servicios: 'info',
+  };
 }

@@ -2,7 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { providersMock } from '../../mocks/providers.mocks';
-import { ProvidersTableComponent} from './providers-table';
+import { ProvidersTableComponent } from './providers-table';
 
 describe('ProvidersTableComponent', () => {
   let component: ProvidersTableComponent;
@@ -10,9 +10,8 @@ describe('ProvidersTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProvidersTableComponent]
-    })
-    .compileComponents();
+      imports: [ProvidersTableComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProvidersTableComponent);
     component = fixture.componentInstance;
@@ -50,7 +49,6 @@ describe('ProvidersTableComponent', () => {
       const providerCategory = component.categoryMap[provider.category];
       const providerEmail = provider.email ? provider.email : 'N/A';
       const providerPhone = provider.phone ? provider.phone : 'N/A';
-      
 
       expect(columns[0].nativeElement.textContent.trim()).toBe(String(provider.id));
       expect(columns[1].nativeElement.textContent.trim()).toBe(provider.name);
@@ -58,9 +56,12 @@ describe('ProvidersTableComponent', () => {
       expect(columns[3].nativeElement.textContent.trim()).toBe(providerPhone);
       expect(columns[4].nativeElement.textContent.trim()).toBe(providerEmail);
       expect(columns[5].nativeElement.textContent.trim()).toBe(providerPrice);
-      expect(columns[6].nativeElement.querySelector('.badge').textContent.trim()).toBe(provider.category);
-      expect(columns[6].nativeElement.querySelector('.badge').classList).toContain(`bg-${providerCategory}`);
-      
+      expect(columns[6].nativeElement.querySelector('.badge').textContent.trim()).toBe(
+        provider.category,
+      );
+      expect(columns[6].nativeElement.querySelector('.badge').classList).toContain(
+        `bg-${providerCategory}`,
+      );
     });
   });
 

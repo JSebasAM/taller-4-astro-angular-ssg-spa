@@ -26,7 +26,9 @@ describe('OrdersPage', () => {
   });
 
   it('debería llamar a getAllOrders al iniciar', () => {
-    const spyGetAllOrders = jest.spyOn(ordersService, 'getAllOrders').mockReturnValue(of(ORDERS_MOCK));
+    const spyGetAllOrders = jest
+      .spyOn(ordersService, 'getAllOrders')
+      .mockReturnValue(of(ORDERS_MOCK));
     fixture.detectChanges();
     expect(spyGetAllOrders).toHaveBeenCalled();
   });
@@ -40,9 +42,9 @@ describe('OrdersPage', () => {
   it('debería pasar las órdenes al componente orders-table', () => {
     jest.spyOn(ordersService, 'getAllOrders').mockReturnValue(of(ORDERS_MOCK));
     fixture.detectChanges();
-    const tableComponent = fixture.debugElement
-      .query(By.directive(OrdersTableComponent))
-      .componentInstance;
+    const tableComponent = fixture.debugElement.query(
+      By.directive(OrdersTableComponent),
+    ).componentInstance;
     expect(tableComponent.orders).toEqual(ORDERS_MOCK);
   });
 

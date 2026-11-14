@@ -29,7 +29,6 @@ import { Ticket, TicketPriority, TicketStatus } from '../../interfaces/tickets.i
   templateUrl: './tickets-table.component.html',
 })
 export class TicketsTableComponent {
-
   /**
    * Listado de tickets que se mostrarán en la tabla.
    * @type {Ticket[]}
@@ -53,10 +52,10 @@ export class TicketsTableComponent {
    * la urgencia de la incidencia de forma clara para el usuario.
    */
   priorityMap: Record<TicketPriority, BadgeType> = {
-    'Baja':    'secondary',
-    'Media':   'warning',
-    'Alta':    'danger',
-    'Crítica': 'dark',
+    Baja: 'secondary',
+    Media: 'warning',
+    Alta: 'danger',
+    Crítica: 'dark',
   };
 
   /**
@@ -73,11 +72,10 @@ export class TicketsTableComponent {
    * Permite identificar visualmente el ciclo de vida de cada ticket.
    */
   statusMap: Record<TicketStatus, BadgeType> = {
-    'Abierto':     'primary',
+    Abierto: 'primary',
     'En Progreso': 'warning',
     'En Revisión': 'info',
-    'Resuelto':    'success',
-    'Cerrado':     'secondary',
+    Resuelto: 'success',
+    Cerrado: 'secondary',
   };
-
 }

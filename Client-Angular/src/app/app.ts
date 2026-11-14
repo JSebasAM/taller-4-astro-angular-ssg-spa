@@ -24,7 +24,6 @@ import { NavbarConfig, NavbarOrganism } from '@brejcha13320/design-system-bootst
   imports: [RouterOutlet, NavbarOrganism],
 })
 export class App {
-
   /**
    * Configuración del navbar principal.
    *
@@ -56,7 +55,7 @@ export class App {
     title: 'Angular Client',
     iconConfig: {
       icon: 'bootstrap',
-      size: 2
+      size: 2,
     },
     navLinks: [
       { text: 'Usuarios', url: '/users' },
@@ -65,6 +64,6 @@ export class App {
       { text: 'Orders', url: '/orders' },
       { text: 'Tickets', url: '/tickets' },
       { text: 'Fecha', url: '/date' },
-    ]
+    ],
   };
 }

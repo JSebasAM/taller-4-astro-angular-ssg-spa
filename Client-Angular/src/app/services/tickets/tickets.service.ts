@@ -22,7 +22,6 @@ import { TICKETS } from '../../data/tickets.data';
   providedIn: 'root',
 })
 export class TicketsService {
-
   /**
    * Obtiene la lista completa de tickets de incidencias.
    *
@@ -38,5 +37,4 @@ export class TicketsService {
   getAllTickets(): Observable<Ticket[]> {
     return of(TICKETS);
   }
-
 }

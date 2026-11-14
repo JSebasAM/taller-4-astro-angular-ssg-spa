@@ -16,9 +16,8 @@ describe('UsersPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [UsersPage, UsersTableComponent],
-      providers: [provideHttpClient()]
-    })
-    .compileComponents();
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UsersPage);
     component = fixture.componentInstance;
@@ -44,9 +43,9 @@ describe('UsersPage', () => {
   it('debería pasar los productos al componente users-table', () => {
     jest.spyOn(usersService, 'getAllUsers').mockReturnValue(of(USERS_MOCK));
     fixture.detectChanges();
-    const tableComponent = fixture.debugElement
-      .query(By.directive(UsersTableComponent))
-      .componentInstance;
+    const tableComponent = fixture.debugElement.query(
+      By.directive(UsersTableComponent),
+    ).componentInstance;
     expect(tableComponent.users).toEqual(USERS_MOCK);
   });
 

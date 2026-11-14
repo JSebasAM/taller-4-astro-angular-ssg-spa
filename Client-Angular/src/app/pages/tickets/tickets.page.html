@@ -1,15 +1,13 @@
-@switch(state){
+@switch (state) {
+  @case ('loading') {
+    <app-alert alertState="loading" text="Cargando Tickets..."></app-alert>
+  }
 
-    @case('loading'){
-        <app-alert alertState="loading" text="Cargando Tickets..." ></app-alert>
-    }
+  @case ('error') {
+    <app-alert alertState="error" text="Error al Cargar los Tickets"></app-alert>
+  }
 
-    @case('error'){
-        <app-alert alertState="error" text="Error al Cargar los Tickets" ></app-alert>
-    }
-
-    @case('success'){
-        <app-tickets-table [tickets]="tickets" ></app-tickets-table>
-    }
-
+  @case ('success') {
+    <app-tickets-table [tickets]="tickets"></app-tickets-table>
+  }
 }

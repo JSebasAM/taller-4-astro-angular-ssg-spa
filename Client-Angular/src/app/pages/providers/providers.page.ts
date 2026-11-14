@@ -21,7 +21,7 @@ import { AlertComponent } from '../../components/alert/alert.component';
   selector: 'app-providers-page',
   templateUrl: `./providers.page.html`,
   standalone: true,
-  imports: [ProvidersTableComponent, AlertComponent]
+  imports: [ProvidersTableComponent, AlertComponent],
 })
 export class ProvidersPage {
   /**
@@ -30,12 +30,11 @@ export class ProvidersPage {
    */
   providers: Provider[] = [];
   /**
-     * Estado actual del componente.
-     *
-     * @default 'init'
-     */
-    state: State = 'init';
-  
+   * Estado actual del componente.
+   *
+   * @default 'init'
+   */
+  state: State = 'init';
 
   /**
    * Servicio para obtener provideros.
@@ -58,9 +57,9 @@ export class ProvidersPage {
         this.state = 'success';
       },
       error: (error) => {
-        console.error(error)
+        console.error(error);
         this.state = 'error';
       },
-    })
+    });
   }
 }

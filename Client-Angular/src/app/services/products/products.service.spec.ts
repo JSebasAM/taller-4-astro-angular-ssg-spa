@@ -11,19 +11,16 @@ describe('ProductsService', () => {
   });
 
   describe('Creación del servicio', () => {
-
     it('debería crearse correctamente', () => {
       expect(service).toBeTruthy();
     });
 
     it('getAllProducts debería retornar un observable con los usuarios', (done) => {
-      service.getAllProducts().subscribe(products => {
+      service.getAllProducts().subscribe((products) => {
         expect(products).toEqual(PRODUCTS);
         expect(products.length).toBe(PRODUCTS.length);
         done();
       });
     });
-
   });
-
 });
