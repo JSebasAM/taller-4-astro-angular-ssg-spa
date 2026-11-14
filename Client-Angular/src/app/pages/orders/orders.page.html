@@ -1,15 +1,13 @@
-@switch(state){
+@switch (state) {
+  @case ('loading') {
+    <app-alert alertState="loading" text="Cargando Pedidos..."></app-alert>
+  }
 
-    @case('loading'){
-        <app-alert alertState="loading" text="Cargando Pedidos..." ></app-alert>
-    }
+  @case ('error') {
+    <app-alert alertState="error" text="Error al Cargar los Pedidos"></app-alert>
+  }
 
-    @case('error'){
-        <app-alert alertState="error" text="Error al Cargar los Pedidos" ></app-alert>
-    }
-
-    @case('success'){
-        <app-orders-table [orders]="orders" ></app-orders-table>
-    }
-
+  @case ('success') {
+    <app-orders-table [orders]="orders"></app-orders-table>
+  }
 }

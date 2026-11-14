@@ -1,0 +1,117 @@
+name: Deploy Astro + Angular to GitHub Pages
+
+on:
+  push:
+    branches: ['master']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+env:
+  BASE_PATH: /${{ github.event.repository.name }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            Astro-SSG/package-lock.json
+            Client-Angular/package-lock.json
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      # --- Angular (SPA) ---
+      - name: Install Angular dependencies
+        working-directory: Client-Angular
+        run: npm ci
+
+      - name: Lint Angular
+        working-directory: Client-Angular
+        run: npm run lint
+
+      - name: Check Angular formatting
+        working-directory: Client-Angular
+        run: npm run format:check
+
+      - name: Run Angular unit tests
+        working-directory: Client-Angular
+        run: npm run test
+
+      - name: Build Angular
+        working-directory: Client-Angular
+        run: npx ng build --base-href "${{ env.BASE_PATH }}/angular/"
+
+      # --- Astro (SSG) ---
+      - name: Install Astro dependencies
+        working-directory: Astro-SSG
+        run: npm ci
+
+      - name: Build Astro
+        working-directory: Astro-SSG
+        run: npm run build
+
+      # --- Un solo sitio: Astro en la raíz y Angular en /angular/ ---
+      - name: Copy Angular build into Astro dist
+        run: |
+          mkdir -p Astro-SSG/dist/angular
+          cp -r Client-Angular/dist/Angular-Standalone-Template/browser/. Astro-SSG/dist/angular/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./Astro-SSG/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify deployed routes
+        env:
+          URL: ${{ needs.deploy.outputs.page_url || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+        run: |
+          check() {
+            local url="$1" marker="$2"
+            echo "Verificando $url (marcador: $marker)"
+            for i in $(seq 1 12); do
+              code=$(curl -s -o page.html -w "%{http_code}" "$url" || true)
+              if [ "$code" = "200" ] && grep -q "$marker" page.html; then
+                echo "OK: HTTP 200 y '$marker' encontrado (intento $i)"
+                return 0
+              fi
+              echo "Intento $i/12: HTTP $code. Reintentando en 10 s..."
+              sleep 10
+            done
+            echo "ERROR: $url no respondió 200 con '$marker' en ~2 min"
+            return 1
+          }
+          check "${URL}" 'Astro App'
+          check "${URL}angular/" '<app-root'

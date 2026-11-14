@@ -16,9 +16,8 @@ describe('ProductsPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProductsPage, ProductsTableComponent],
-      providers: [provideHttpClient()]
-    })
-    .compileComponents();
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProductsPage);
     component = fixture.componentInstance;
@@ -30,7 +29,9 @@ describe('ProductsPage', () => {
   });
 
   it('debería llamar a getAllProducts al iniciar', () => {
-    const spyGetAllProducts = jest.spyOn(productsService, 'getAllProducts').mockReturnValue(of(PRODUCTS_MOCK));
+    const spyGetAllProducts = jest
+      .spyOn(productsService, 'getAllProducts')
+      .mockReturnValue(of(PRODUCTS_MOCK));
     fixture.detectChanges();
     expect(spyGetAllProducts).toHaveBeenCalled();
   });
@@ -44,9 +45,9 @@ describe('ProductsPage', () => {
   it('debería pasar los productos al componente products-table', () => {
     jest.spyOn(productsService, 'getAllProducts').mockReturnValue(of(PRODUCTS_MOCK));
     fixture.detectChanges();
-    const tableComponent = fixture.debugElement
-      .query(By.directive(ProductsTableComponent))
-      .componentInstance;
+    const tableComponent = fixture.debugElement.query(
+      By.directive(ProductsTableComponent),
+    ).componentInstance;
     expect(tableComponent.products).toEqual(PRODUCTS_MOCK);
   });
 

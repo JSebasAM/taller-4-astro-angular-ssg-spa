@@ -20,7 +20,7 @@ import { AlertComponent } from '../../components/alert/alert.component';
 @Component({
   selector: 'app-producs',
   templateUrl: `./products.page.html`,
-  imports: [ProductsTableComponent, AlertComponent]
+  imports: [ProductsTableComponent, AlertComponent],
 })
 export class ProductsPage {
   /**
@@ -29,12 +29,11 @@ export class ProductsPage {
    */
   products: Product[] = [];
   /**
-     * Estado actual del componente.
-     *
-     * @default 'init'
-     */
-    state: State = 'init';
-  
+   * Estado actual del componente.
+   *
+   * @default 'init'
+   */
+  state: State = 'init';
 
   /**
    * Servicio para obtener productos.
@@ -57,9 +56,9 @@ export class ProductsPage {
         this.state = 'success';
       },
       error: (error) => {
-        console.error(error)
+        console.error(error);
         this.state = 'error';
       },
-    })
+    });
   }
 }

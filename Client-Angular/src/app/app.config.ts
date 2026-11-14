@@ -1,6 +1,10 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
+import { provideRouter, withHashLocation } from '@angular/router';
 import { routes } from './app.routes';
 import { clientAngularInterceptor } from './interceptors/client-angular.interceptor';
 
@@ -21,7 +25,6 @@ import { clientAngularInterceptor } from './interceptors/client-angular.intercep
  * @see {@link bootstrapApplication}
  */
 export const appConfig: ApplicationConfig = {
-
   /**
    * Proveedores globales de la aplicación.
    *
@@ -30,7 +33,6 @@ export const appConfig: ApplicationConfig = {
    * que estarán disponibles en toda la aplicación.
    */
   providers: [
-
     /**
      * Proveedor de listeners globales de errores del navegador.
      *
@@ -57,9 +59,13 @@ export const appConfig: ApplicationConfig = {
      * Registra las rutas definidas en `routes`
      * para la navegación de la aplicación.
      *
+     * @remarks
+     * Usa `withHashLocation()` para que las rutas funcionen en
+     * GitHub Pages bajo `/angular/` sin necesidad de `404.html`.
+     *
      * @see {@link routes}
      */
-    provideRouter(routes),
+    provideRouter(routes, withHashLocation()),
 
     /**
      * Proveedor del cliente HTTP.
@@ -71,8 +77,6 @@ export const appConfig: ApplicationConfig = {
      *
      * @see {@link clientAngularInterceptor}
      */
-    provideHttpClient(
-      withInterceptors([clientAngularInterceptor])
-    ),
-  ]
+    provideHttpClient(withInterceptors([clientAngularInterceptor])),
+  ],
 };

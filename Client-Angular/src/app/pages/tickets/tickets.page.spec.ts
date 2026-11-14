@@ -28,7 +28,9 @@ describe('TicketsPage', () => {
   });
 
   it('debería llamar a getAllTickets al iniciar', () => {
-    const spyGetAllTickets = jest.spyOn(ticketsService, 'getAllTickets').mockReturnValue(of(TICKETS_MOCK));
+    const spyGetAllTickets = jest
+      .spyOn(ticketsService, 'getAllTickets')
+      .mockReturnValue(of(TICKETS_MOCK));
     fixture.detectChanges();
     expect(spyGetAllTickets).toHaveBeenCalled();
   });
@@ -42,9 +44,9 @@ describe('TicketsPage', () => {
   it('debería pasar los tickets al componente tickets-table', () => {
     jest.spyOn(ticketsService, 'getAllTickets').mockReturnValue(of(TICKETS_MOCK));
     fixture.detectChanges();
-    const tableComponent = fixture.debugElement
-      .query(By.directive(TicketsTableComponent))
-      .componentInstance;
+    const tableComponent = fixture.debugElement.query(
+      By.directive(TicketsTableComponent),
+    ).componentInstance;
     expect(tableComponent.tickets).toEqual(TICKETS_MOCK);
   });
 

@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { HttpHandlerFn, HttpInterceptorFn, HttpRequest, HttpResponse } from '@angular/common/http';
 import { clientAngularInterceptor } from './client-angular.interceptor';
 import { environment } from '../../environments/environment';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 
 describe('clientAngularInterceptor', () => {
-  const interceptor: HttpInterceptorFn = (req, next) => 
+  const interceptor: HttpInterceptorFn = (req, next) =>
     TestBed.runInInjectionContext(() => clientAngularInterceptor(req, next));
 
   beforeEach(() => {
@@ -26,5 +26,4 @@ describe('clientAngularInterceptor', () => {
 
     interceptor(requestMock, next).subscribe();
   });
-
 });

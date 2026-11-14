@@ -11,9 +11,7 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [
-        provideRouter([])
-      ]
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(App);
@@ -30,15 +28,16 @@ describe('App', () => {
       title: 'Angular Client',
       iconConfig: {
         icon: 'bootstrap',
-        size: 2
+        size: 2,
       },
       navLinks: [
         { text: 'Usuarios', url: '/users' },
         { text: 'Productos', url: '/products' },
         { text: 'Proveedores', url: '/providers' },
         { text: 'Orders', url: '/orders' },
+        { text: 'Tickets', url: '/tickets' },
         { text: 'Fecha', url: '/date' },
-      ]
+      ],
     });
   });
 
@@ -48,9 +47,9 @@ describe('App', () => {
   });
 
   it('debería pasar la configuración al NavbarOrganism', () => {
-    const navbarComponent = fixture.debugElement
-      .query(By.directive(NavbarOrganism))
-      .componentInstance;
+    const navbarComponent = fixture.debugElement.query(
+      By.directive(NavbarOrganism),
+    ).componentInstance;
     expect(navbarComponent.navbarConfig).toEqual(component.navbarConfig);
   });
 
@@ -58,5 +57,4 @@ describe('App', () => {
     const routerOutlet = fixture.debugElement.query(By.css('router-outlet'));
     expect(routerOutlet).toBeTruthy();
   });
-
 });

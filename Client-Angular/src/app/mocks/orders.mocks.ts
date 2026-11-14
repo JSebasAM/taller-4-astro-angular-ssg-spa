@@ -1,4 +1,4 @@
-import { Order } from "../interfaces/orders.interface";
+import { Order } from '../interfaces/orders.interface';
 
 /**
  * Mock de órdenes ficticias utilizado en pruebas unitarias y desarrollo local.

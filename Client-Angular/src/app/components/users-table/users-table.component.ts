@@ -51,10 +51,10 @@ export class UsersTableComponent {
    * de forma clara para el usuario.
    */
   engineeringMap: Record<UserEngineering, BadgeType> = {
-    'Sistemas' : 'success',
-    'Electronica': 'primary',
-    'Biomedica': 'warning',
-    'Industrial': 'danger',
-    'Ambiental': 'secondary'
-  }
+    Sistemas: 'success',
+    Electronica: 'primary',
+    Biomedica: 'warning',
+    Industrial: 'danger',
+    Ambiental: 'secondary',
+  };
 }

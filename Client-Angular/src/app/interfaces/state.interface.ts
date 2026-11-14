@@ -20,7 +20,6 @@ export type State =
   /** Ocurrió un error durante el proceso */
   | 'error';
 
-
 /**
  * Estados posibles de una alerta.
  *

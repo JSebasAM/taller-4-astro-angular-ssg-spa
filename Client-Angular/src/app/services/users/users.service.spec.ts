@@ -11,19 +11,16 @@ describe('UsersService', () => {
   });
 
   describe('Creación del servicio', () => {
-
     it('debería crearse correctamente', () => {
       expect(service).toBeTruthy();
     });
 
     it('getAllUsers debería retornar un observable con los usuarios', (done) => {
-      service.getAllUsers().subscribe(users => {
+      service.getAllUsers().subscribe((users) => {
         expect(users).toEqual(USERS);
         expect(users.length).toBe(USERS.length);
         done();
       });
     });
-
   });
-  
 });

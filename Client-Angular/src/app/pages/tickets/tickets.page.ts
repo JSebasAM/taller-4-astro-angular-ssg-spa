@@ -23,7 +23,6 @@ import { TicketsService } from '../../services/tickets/tickets.service';
   templateUrl: './tickets.page.html',
 })
 export class TicketsPage {
-
   /**
    * Listado de tickets obtenidos desde el servicio.
    * @type {Ticket[]}
@@ -63,5 +62,4 @@ export class TicketsPage {
       },
     });
   }
-
 }

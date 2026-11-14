@@ -19,17 +19,17 @@
  * ```
  */
 export interface Product {
-    /** Identificador único del producto */
-    id: number;
+  /** Identificador único del producto */
+  id: number;
 
-    /** Nombre o descripción del producto */
-    name: string;
+  /** Nombre o descripción del producto */
+  name: string;
 
-    /** Categoría del producto */
-    category: ProductCategory;
+  /** Categoría del producto */
+  category: ProductCategory;
 
-    /** Precio del producto en pesos */
-    price: number;
+  /** Precio del producto en pesos */
+  price: number;
 }
 
 /**

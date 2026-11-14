@@ -29,9 +29,9 @@ export class OrdersTableComponent {
    * Mapeo de estados de órdenes a tipos de Badge.
    */
   statusMap: Record<OrderStatus, BadgeType> = {
-    'PENDING': 'warning',
-    'PROCESSING': 'primary',
-    'COMPLETED': 'success',
-    'CANCELLED': 'danger',
+    PENDING: 'warning',
+    PROCESSING: 'primary',
+    COMPLETED: 'success',
+    CANCELLED: 'danger',
   };
 }

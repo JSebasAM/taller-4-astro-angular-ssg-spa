@@ -12,10 +12,8 @@ import { BadgeAtom } from '@brejcha13320/design-system-bootstrap';
   templateUrl: './date.page.html',
 })
 export class DatePage {
-
   /**
    * Obtiene la fecha actual del sistema
    */
   currentDate = new Date();
-
 }

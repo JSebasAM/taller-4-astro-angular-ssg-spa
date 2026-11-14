@@ -22,7 +22,6 @@ import { Provider } from '../../interfaces/providers.interface';
   providedIn: 'root',
 })
 export class ProvidersService {
-
   /**
    * Cliente HTTP de Angular para realizar peticiones a la API.
    * Se inyecta usando la función `inject`.
