@@ -102,8 +102,8 @@ jobs:
             local url="$1" marker="$2"
             echo "Verificando $url (marcador: $marker)"
             for i in $(seq 1 12); do
-              code=$(curl -s -o page.html -w "%{http_code}" "$url" || true)
-              if [ "$code" = "200" ] && grep -q "$marker" page.html; then
+              code=$(curl -s -L -o page.html -w "%{http_code}" "$url" || true)
+              if [ "$code" = "200" ] && grep -qiE "$marker" page.html; then
                 echo "OK: HTTP 200 y '$marker' encontrado (intento $i)"
                 return 0
               fi
@@ -113,5 +113,6 @@ jobs:
             echo "ERROR: $url no respondió 200 con '$marker' en ~2 min"
             return 1
           }
-          check "${URL}" 'Astro App'
+          check "${URL}" 'Astro App|Redirecting'
+          check "${URL}users" 'Astro App'
           check "${URL}angular/" '<app-root'
